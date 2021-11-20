@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import ItemListContainer from './components/container/ItemListContainer';
-import NavBar from './components/NavBar/NavBar';
+
 
 
 
@@ -11,9 +11,9 @@ import NavBar from './components/NavBar/NavBar';
 function App() {
   return (
     <>
-      <ItemListContainer />
-      <h1>Rick y Morty Burgers</h1>
-      <NavBar />
+    {/* <h1>Rick y Morty Burgers</h1> */}
+    {/* <h2>Bienvenidos</h2> */}
+     <ItemListContainer /> 
     </>
   );
 }

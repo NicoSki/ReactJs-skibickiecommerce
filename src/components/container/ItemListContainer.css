@@ -1,14 +1,17 @@
 /*estos serian los estilos de la imagen y el carrito*/
 
-div.barra{
-    width: 100%;
-    height: 1200px;
-    background-image: url(https://i2.wp.com/www.puro-geek.com/wp-content/uploads/2021/08/rick-morty-season-5.jpg?fit=1200%2C675&ssl=1);
-    background-repeat: no-repeat;
-    background-size:cover;
-    
+div{
+    text-align: center;
 }
 
+div.card{
+    width: 50%;
+    height: auto;
+    margin-left: 25%;
+}
+
+
+/* 
 div svg{
     position: relative;
     left: 40%;
@@ -18,7 +21,8 @@ div svg{
 div svg path{
     cursor: pointer;
     
-}
+} */
+
 
 
 

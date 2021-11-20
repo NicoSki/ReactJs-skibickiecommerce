@@ -5,9 +5,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: url(https://i2.wp.com/www.puro-geek.com/wp-content/uploads/2021/08/rick-morty-season-5.jpg?fit=1200%2C675&ssl=1); */
+  /* background-repeat: no-repeat; */
+  /* background-size:cover; */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/*agrego algunos estilos*/
+h1{
+  text-align: center;
+  padding-top: 28%;
 }
