@@ -1,11 +1,8 @@
 /*estilos del navbar*/
 
-div{
-    height: 39rem;
+ul{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .menu{
@@ -14,16 +11,5 @@ div{
     font-size: 25px;
 }
 
-.menu li{
-    border: solid 1px green;
-    border-radius: 5px;
-    margin: 15px;
-    padding: 3px;
-}
 
-.menu li:hover{
-    margin: 30px;
-    padding: 5px;
-    cursor: pointer;
-    background-color: rgb(6, 82, 6);
-}
+
