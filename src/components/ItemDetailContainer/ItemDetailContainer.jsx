@@ -5,6 +5,7 @@ import Contador from "../Contador/Contador";
 const ItemDetailContainer = () => {
 
     const [prod, setProd] = useState([])
+    
 
 
     useEffect(() => {
@@ -26,7 +27,9 @@ const ItemDetailContainer = () => {
                 </div>
             ))
             }
-            <Contador />
+            
+           <Contador />
+            
         </>
     )
 }
