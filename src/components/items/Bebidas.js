@@ -21,7 +21,7 @@ const Bebidas = () => {
                         <div className="card-body">
                             <h5 className="card-title">{items.titulo}</h5>
                             <p className="card-text">{items.categoria}</p>
-                             <Link to="/detalle">
+                            <Link to={`/detalle/${items.id}`}>
                                 <button className="btn btn-success">Ver más</button>
                             </Link> 
                         </div>

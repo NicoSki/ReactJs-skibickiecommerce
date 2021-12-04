@@ -25,6 +25,11 @@ const NavBar = () => {
                 <Link to="/">
                     <li><button className="btn btn-dark">Home</button></li>
                 </Link>
+
+                <Link to="/carrito">
+                    <li>🛒</li>
+                </Link>
+
             </ul>
         </div>
     )
