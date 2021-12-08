@@ -5,8 +5,8 @@ import CartProvider, { CartContext } from './CartContext';
 const Carrito = () => {
 
     const [carrito, setCarrito] = useContext(CartContext)
-    
-   
+
+
     let [total, setTotal] = useState(0);
 
     useEffect(() => {
@@ -15,33 +15,37 @@ const Carrito = () => {
             final = final + item.precio
         ))
         setTotal(final)
-    }, [])
-
-    //pendiente
-    // function eliminar(){
-        
-    // }
+    }, [carrito])
 
 
-    
+    const eliminar = (titulo) => {
+        const filtro = carrito.filter(e => e.titulo !== titulo)
+        setCarrito(filtro)
+        console.log(carrito);
+    }
+
+
+
 
     return (
         <>
             <h1>Carrito</h1>
-            <button>Borrar todo</button>
             {
                 carrito.map((item) => (
                     <div key={item.id} className="carrito">
                         <h1>{item.titulo}</h1>
                         <h3>{item.categoria}</h3>
-                        <img src={item.img}  alt="img"/>
+                        <img src={item.img} alt="img" />
                         <p>$ {item.precio}</p>
-                        <button>Eliminar</button>
+                        <button onClick={() => eliminar(item.titulo)}>Eliminar</button>
                     </div>
                 ))
             }
 
-            <h2>Total a pagar = $ {total}</h2>
+            {
+                total === 0 ? <h2>No agregaste ningun producto</h2> : <h2>Total a pagar = $ {total}</h2>
+            }
+
         </>
     )
 }
