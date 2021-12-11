@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import itemPromise from "../ArrayDeInfo/Item";
 import Contador from "../Contador/Contador";
+import getFirestore from "../FireBase/Firebase";
 import { CartContext } from "../CartContext/CartContext";
 import "./ItemDetailContainer.css"
 
@@ -12,14 +12,22 @@ const ItemDetailContainer = () => {
 
 
     const { id } = useParams();
+    console.log(id);
 
     useEffect(() => {
         setTimeout(() => {
-            itemPromise
-                .then((res) => setInfo(res.find((e) => e.id === parseInt(id))))
-                .finally(() => setLoading(false));
+            // itemPromise
+            //     .then((res) => setInfo(res.find((e) => e.id === parseInt(id))))
+            //     .finally(() => setLoading(false));
+            const db = getFirestore()
+            const dbQuery = db.collection("productos").doc(id)
+            dbQuery.get()
+            .then(res => setInfo( { id: res.id, ...res.data() } ))
+            .finally(() => setLoading(false))
         }, 2000)
     }, [id])
+
+    //console.log(info);
 
 
 
@@ -28,13 +36,13 @@ const ItemDetailContainer = () => {
     //en esta parte voy a agregar la logica del carrito
     const [carrito, setCarrito] = useContext(CartContext)
 
-function agregar(){
- console.log(info);
- const temporal = carrito;
- temporal.push(info);
- setCarrito(temporal);
- console.log(carrito);
-}
+    function agregar() {
+        console.log(info);
+        const temporal = carrito;
+        temporal.push(info);
+        setCarrito(temporal);
+        console.log(carrito);
+    }
 
 
     //aca termina la logica del carrito
@@ -44,15 +52,16 @@ function agregar(){
         <div className="detail">
             {loading ? <h2>Cargando...</h2> :
                 <>
-                    <h1>{info.titulo}</h1>
-                    <img src={info.img} alt="img"/>
+                    <h1>{info.nombre}</h1>
+                    <img src={info.img} alt="img" />
                     <p>{info.categoria}</p>
+                    <p>{info.precio}</p>
                     <Contador />
                     <button onClick={agregar}>Agregar</button>
                 </>
             }
 
-            
+
 
         </div>
     )

@@ -7,6 +7,8 @@ const Carrito = () => {
     const [carrito, setCarrito] = useContext(CartContext)
 
 
+
+
     let [total, setTotal] = useState(0);
 
     useEffect(() => {
@@ -18,11 +20,17 @@ const Carrito = () => {
     }, [carrito])
 
 
-    const eliminar = (titulo) => {
-        const filtro = carrito.filter(e => e.titulo !== titulo)
-        setCarrito(filtro)
-        console.log(carrito);
+    const vaciar = () => {
+        // const filtro = carrito.filter(e => e.titulo !== titulo)
+        // setCarrito(filtro)
+        // console.log(carrito);
+        setCarrito([])
     }
+
+    
+    // const eliminar = () => {
+      
+    // }
 
 
 
@@ -30,14 +38,15 @@ const Carrito = () => {
     return (
         <>
             <h1>Carrito</h1>
+            <button onClick={() => vaciar()}>Vaciar Carrito</button>
             {
                 carrito.map((item) => (
                     <div key={item.id} className="carrito">
-                        <h1>{item.titulo}</h1>
+                        <h1>{item.nombre}</h1>
                         <h3>{item.categoria}</h3>
                         <img src={item.img} alt="img" />
                         <p>$ {item.precio}</p>
-                        <button onClick={() => eliminar(item.titulo)}>Eliminar</button>
+                        <button>Eliminar</button>
                     </div>
                 ))
             }

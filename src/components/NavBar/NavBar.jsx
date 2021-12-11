@@ -6,7 +6,9 @@ import "./NavBar.css";
 import { Link } from 'react-router-dom';
 import CartWidget from '../CartContext/CartWidget';
 
+
 const NavBar = () => {
+
     return (
         <div>
             <ul className="menu">
